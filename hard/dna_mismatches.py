@@ -57,20 +57,20 @@ import sys
 def get_dna_matches(line):
     segment, m, dna_string = line.split()
     matches = []
-    for i in range(len(dna_string) - len(segment)):
-        poss_match, mismatches = dna_string[i:i + len(segment)], 0
-        for idx, char in enumerate(poss_match):
-            if char != segment[idx]:
-                mismatches += 1
-        if mismatches <= int(m):
-            tup = poss_match, mismatches
-            matches.append(tup)
-    if len(matches):
-        matches.sort(key=lambda x: (x[1], x))
-        matches = [x[0] for x in matches]
-        return " ".join(matches)
-    else:
-        return "No match"
+    if (3 <= len(segment) < 50) and (0 <= int(m) < 40) and len(dna_string):
+        for i in range(len(dna_string) - len(segment)):
+            poss_match, mismatches = dna_string[i:i + len(segment)], 0
+            for idx, char in enumerate(poss_match):
+                if char != segment[idx]:
+                    mismatches += 1
+            if mismatches <= int(m):
+                tup = poss_match, mismatches
+                matches.append(tup)
+        if len(matches):
+            matches.sort(key=lambda x: (x[1], x))
+            matches = [x[0] for x in matches]
+            return " ".join(matches)
+    return "No match"
 
 
 if __name__ == '__main__':
