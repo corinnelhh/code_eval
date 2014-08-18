@@ -25,7 +25,7 @@ import sys
 
 with open(sys.argv[1], 'r') as f:
     for line in f.readlines():
-        string, rems = line.strip().split(",")
+        string, rems = line.split(",")
         rems = set(rems.strip())
         for char in rems:
             string = string.replace(char, "")
