@@ -56,8 +56,7 @@ places = {"hundred": 100, "thousand": 1000, "million": 1000000}
 
 
 def get_num(phrase):
-    total = 0
-    int_sum = 0
+    total, int_sum = 0, 0
     negative = False
     for word in phrase.split():
         if word == 'negative':
@@ -66,6 +65,7 @@ def get_num(phrase):
             int_sum += nums[word]
         elif word in places:
             int_sum *= places[word]
+        if word == "thousand" or word == "million":
             total += int_sum
             int_sum = 0
     total += int_sum
