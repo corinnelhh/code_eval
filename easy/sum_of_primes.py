@@ -32,11 +32,8 @@
 def sieve_of_eratosthenes(nums, i):
     if i >= len(nums) - 1:
         return nums
-    new_nums = []
-    for num in nums:
-        if (num % i) or (num <= i):
-            new_nums.append(num)
-    return sieve_of_eratosthenes(new_nums, i + 1)
+    nums = [num for num in nums if num % i or num <= i]
+    return sieve_of_eratosthenes(nums, i + 1)
 
 
 def first_n_primes(n=8000):
