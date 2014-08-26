@@ -43,15 +43,10 @@
 
 import sys
 
-
-def reverse_chunks(line):
-    line, k = line.strip().split(";")
-    line, k = line.split(","), int(k)
-    for j in range(0, (len(line) - len(line) % k), k):
-        line[j: j + k] = line[j: j + k][::-1]
-    return ",".join(line)
-
-
 with open(sys.argv[1], 'r') as f:
     for line in f.readlines():
-        print reverse_chunks(line)
+        line, k = line.strip().split(";")
+        line, k = line.split(","), int(k)
+        for j in range(0, (len(line) - len(line) % k), k):
+            line[j: j + k] = line[j: j + k][::-1]
+        print ",".join(line)
