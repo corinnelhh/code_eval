@@ -13,20 +13,6 @@
 
 # 3682913
 
-
-# def first_n_primes(n=1000):
-#     primes = []
-#     i = 2
-#     while True:
-#         is_prime = True
-#         for num in range(2, i - 1):
-#             if not i % num:
-#                 is_prime = False
-#         if is_prime:
-#             primes.append(i)
-#         i += 1
-#         if len(primes) >= 1000:
-#             return sum(primes)
 import math
 
 
