@@ -10,6 +10,8 @@
 
 # 929
 
+import math
+
 
 def prime_palindromes(n):
     nums = [i for i in range(2, n + 1)]
@@ -20,7 +22,7 @@ def prime_palindromes(n):
 
 
 def sieve_of_eratosthenes(nums, i):
-    if i >= len(nums) - 1:
+    if i >= math.sqrt(nums[-1]):
         return nums
     nums = [num for num in nums if num % i or num <= i]
     return sieve_of_eratosthenes(nums, i + 1)
