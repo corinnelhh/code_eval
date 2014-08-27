@@ -22,10 +22,11 @@
 # 2
 
 import sys
+import math
 
 
 def sieve_of_eratosthenes(nums, i):
-    if i > nums[-1]:
+    if i > math.sqrt(nums[-1]):
         return nums
     nums = [num for num in nums if num % i or num <= i]
     return sieve_of_eratosthenes(nums, i + 1)
