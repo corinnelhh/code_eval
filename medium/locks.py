@@ -47,10 +47,8 @@ def get_unlocked_doors(locks, passes):
                 locks_dict[i] = True
         for i in range(locks):
             if not (i + 1) % 3:
-                curr = locks_dict[i]
-                locks_dict[i] = not curr
-    curr = locks_dict[locks - 1]
-    locks_dict[locks - 1] = not curr
+                locks_dict[i] = not locks_dict[i]
+    locks_dict[locks - 1] = not locks_dict[locks - 1]
     print len([k for k, v in locks_dict.items() if not v])
 
 
