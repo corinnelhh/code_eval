@@ -51,7 +51,7 @@ def get_unlocked_doors(locks, passes):
                 locks_dict[i] = not curr
     curr = locks_dict[locks - 1]
     locks_dict[locks - 1] = not curr
-    print len([k for k, v in sorted(locks_dict.items()) if not v])
+    print len([k for k, v in locks_dict.items() if not v])
 
 
 with open(sys.argv[1], 'r') as f:
