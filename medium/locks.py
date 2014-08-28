@@ -40,19 +40,18 @@ import sys
 
 
 def get_unlocked_doors(locks, passes):
-    locks = {i: False for i in range(locks)}
+    locks_dict = {i: False for i in range(locks)}
     for i in range(passes - 1):
-        for idx, door in enumerate(sorted(locks.keys())):
-            if not (idx + 1) % 2:
-                locks[door] = True
-        for idx, door in enumerate(sorted(locks.keys())):
-            if not (idx + 1) % 3:
-                curr = locks[door]
-                locks[door] = not curr
-    last = sorted(locks.keys())[-1]
-    curr = locks[last]
-    locks[last] = not curr
-    print len([k for k, v in sorted(locks.items()) if not v])
+        for i in range(locks):
+            if not (i + 1) % 2:
+                locks_dict[i] = True
+        for i in range(locks):
+            if not (i + 1) % 3:
+                curr = locks_dict[i]
+                locks_dict[i] = not curr
+    curr = locks_dict[locks - 1]
+    locks_dict[locks - 1] = not curr
+    print len([k for k, v in sorted(locks_dict.items()) if not v])
 
 
 with open(sys.argv[1], 'r') as f:
