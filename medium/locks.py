@@ -42,12 +42,10 @@ import sys
 def get_unlocked_doors(locks, passes):
     locks_dict = {i: False for i in range(locks)}
     for i in range(passes - 1):
-        for i in range(locks):
-            if not (i + 1) % 2:
-                locks_dict[i] = True
-        for i in range(locks):
-            if not (i + 1) % 3:
-                locks_dict[i] = not locks_dict[i]
+        for i in range(1, locks, 2):
+            locks_dict[i] = True
+        for i in range(2, locks, 3):
+            locks_dict[i] = not locks_dict[i]
     locks_dict[locks - 1] = not locks_dict[locks - 1]
     print len([k for k, v in locks_dict.items() if not v])
 
