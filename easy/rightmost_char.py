@@ -26,18 +26,14 @@
 
 import sys
 
-
-def get_last_char(line):
-    last = None
-    string, char = line
-    for idx, el in enumerate(list(string)):
-        if el == char:
-            last = idx
-    if not last:
-        return -1
-    else:
-        return last
-
 with open(sys.argv[1], 'r') as f:
     for line in f.readlines():
-        print get_last_char(line.strip().split(','))
+        string, char = line.strip().split(',')
+        last = None
+        for idx, el in enumerate(list(string)):
+            if el == char:
+                last = idx
+        if not last:
+            print -1
+        else:
+            print last
