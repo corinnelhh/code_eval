@@ -16,9 +16,4 @@
 
 import sys
 
-endian = sys.byteorder
-
-if endian == 'little':
-    print "LittleEndian"
-else:
-    print "BigEndian"
+print {'little': 'LittleEndian', "big": 'BigEndian'}[sys.byteorder]
