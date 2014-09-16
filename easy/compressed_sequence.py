@@ -43,9 +43,8 @@ import sys
 
 
 def unpack_line(line):
-    out = []
-    check_num, count = line[0], 0
-    for idx, num in enumerate(line):
+    out, check_num, count = [], line[0], 0
+    for num in line:
         if num != check_num:
             out.append(str(count))
             out.append(check_num)
